@@ -25,7 +25,9 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);
     Update();
-    renderer.Render(snake, food);
+
+    // added bomb instance
+    renderer.Render(snake, food, bomb);
 
     frame_end = SDL_GetTicks();
 
@@ -64,6 +66,9 @@ void Game::PlaceFood() {
     }
   }
 }
+
+//Place Bomb
+void Game::PlaceBomb(){}
 
 void Game::Update() {
   if (!snake.alive) return;

@@ -23,7 +23,6 @@ class Game {
   //Create bomb instance
   Bomb bomb;
 
-
   std::random_device dev;
   std::mt19937 engine;
   std::uniform_int_distribution<int> random_w;
@@ -32,6 +31,10 @@ class Game {
   int score{0};
 
   void PlaceFood();
+
+  //Create Place Bomb
+  void PlaceBomb();
+
   void Update();
 };
 
