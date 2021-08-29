@@ -1,13 +1,6 @@
 #include "bomb.h"
-#include "game.h"
 #include <cmath>
 #include <iostream>
-
-//intialize
-Bomb::Bomb(std::size_t grid_width, std::size_t grid_height)
-:random_b_w(0, static_cast<int>(grid_width - 1)),
-random_b_h(0, static_cast<int>(grid_height - 1)) {}
-
 
 void Bomb::CreateBomb(){
     int x, y;

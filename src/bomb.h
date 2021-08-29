@@ -9,11 +9,11 @@ class Bomb {
  public:
 
 //Constructor
-Bomb::Bomb(std::size_t grid_width, std::size_t grid_height)
+Bomb(std::size_t grid_width, std::size_t grid_height)
 :random_b_w(0, static_cast<int>(grid_width - 1)),
 random_b_h(0, static_cast<int>(grid_height - 1)),
 bomb_x(grid_width / 2),
-bomb_y(grid_height / 2) {}
+bomb_y(grid_height / 2) {};
 
  //Create Bomb
  void CreateBomb();
