@@ -4,12 +4,11 @@
 
 void Bomb::CreateBomb(){
 
-};
+}
 
 void Bomb::ExplodeBomb(){
 
 }
 
 void Bomb::FinishBomb(){
-
 }
