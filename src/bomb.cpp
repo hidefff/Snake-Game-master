@@ -5,13 +5,18 @@
 void Bomb::CreateBomb(){
     int x, y;
     while(true){
-        x = random_b_w(engine);
-        y = random_b_h(engine);
+        x = random_b_w(engine2);
+        y = random_b_h(engine2);
+        
+        bomb_x = x;
+        bomb_y = y;
+        
+        return;
+        
+        //need to check that whether there is no snake and food
     }
-    bomb_x = x;
-    bomb_y = y;
 
-    //need to check that whether there is no snake and food
+    
 }
 
 void Bomb::ExplodeBomb(){

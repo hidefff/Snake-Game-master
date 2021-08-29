@@ -57,6 +57,9 @@ void Renderer::Render(Snake const snake, SDL_Point const &food, Bomb const bomb)
   SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
   block.x = static_cast<int>(bomb.bomb_x) * block.w;
   block.y = static_cast<int>(bomb.bomb_y) * block.h;
+  // block.x = 100;
+  // block.y = 100;
+  SDL_RenderFillRect(sdl_renderer, &block);
 
   // Render snake's body
   SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0xFF, 0xFF);

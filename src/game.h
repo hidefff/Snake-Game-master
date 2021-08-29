@@ -19,6 +19,8 @@ class Game {
  private:
   Snake snake;
   SDL_Point food;
+
+  
   
   //Create bomb instance
   Bomb bomb;
