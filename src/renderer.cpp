@@ -62,7 +62,7 @@ void Renderer::Render(Snake const snake, SDL_Point const &food, Bomb const bomb)
       block.y = static_cast<int>(e.fire_y) * block.h;
       SDL_RenderFillRect(sdl_renderer, &block);
       }
-      
+      //std::cout << "bomb" << std::endl;
   }
   // Render Green color Bomb seed
   else if(bomb.status == Bomb::bombstatus::seed){

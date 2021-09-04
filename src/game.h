@@ -16,11 +16,11 @@ class Game {
   int GetScore() const;
   int GetSize() const;
 
+  void Checkdeath(Bomb bomb, Snake snake);
+
  private:
   Snake snake;
   SDL_Point food;
-
-  
   
   //Create bomb instance
   Bomb bomb;

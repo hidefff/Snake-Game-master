@@ -1,6 +1,9 @@
 #include "game.h"
 #include <iostream>
 #include "SDL.h"
+#include <bomb.h>
+#include <vector>
+#include <algorithm>
 
 Game::Game(std::size_t grid_width, std::size_t grid_height)
     : snake(grid_width, grid_height),
@@ -27,8 +30,6 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     controller.HandleInput(running, snake);
     Update();
 
-
-
     // added bomb instance
     renderer.Render(snake, food, bomb);
 
@@ -51,6 +52,13 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     // achieve the correct frame rate.
     if (frame_duration < target_frame_duration) {
       SDL_Delay(target_frame_duration - frame_duration);
+    
+    }
+
+    //terminate when snake die
+    if(!snake.alive){
+      std::cout <<"snake is dead"<< std::endl;
+      return;
     }
   }
 }
@@ -70,21 +78,39 @@ void Game::PlaceFood() {
   }
 }
 
+// check whether snake head is in fire and judge dead or not
+void Game::Checkdeath(Bomb bomb, Snake snake){
+  
+  int new_x = static_cast<int>(snake.head_x);
+  int new_y = static_cast<int>(snake.head_y);
+
+  for(auto e: bomb.bombarea){
+    if ((static_cast<int>(e.fire_x) == new_x) &&  (static_cast<int>(e.fire_y) == new_y)){
+      snake.alive = false;
+    }
+  }
+  
+  return;
+}
+
 
 void Game::Update() {
   if (!snake.alive) return;
 
   snake.Update();
   bomb.UpdateBomb();
-      // count the time to fire
-    if (bomb.bombcount < bomb.bombtime)
-    {
-      ++bomb.bombcount;
-    }
-    else{
-      bomb.bombcount = 0;
-    }
+  
+  // count the time to fire
+  if (bomb.bombcount < bomb.bombtime){
+    ++bomb.bombcount;
+  }
+  else{
+    bomb.bombcount = 0;
+  }
 
+  //check whether snake dead or not
+  Checkdeath(bomb,snake);
+  
   int new_x = static_cast<int>(snake.head_x);
   int new_y = static_cast<int>(snake.head_y);
 
@@ -92,6 +118,7 @@ void Game::Update() {
   if (food.x == new_x && food.y == new_y) {
     score++;
     PlaceFood();
+
     // Grow snake and increase speed.
     snake.GrowBody();
     snake.speed += 0.02;
