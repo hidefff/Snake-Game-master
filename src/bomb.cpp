@@ -28,7 +28,7 @@ void Bomb::CreateBomb(){
 void Bomb::UpdateBomb()
 {
     if(status == bombstatus::finish){CreateBomb();}
-    else if (status == bombstatus::seed){ExplodeBomb();}
+    else if ((status == bombstatus::seed) && (bombcount = bombtime)){ExplodeBomb();}
     else{FinishBomb();}
 
     return;

@@ -27,6 +27,15 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     controller.HandleInput(running, snake);
     Update();
 
+    // count the time to fire
+    if (bomb.bombcount != bomb.bombtime)
+    {
+      ++bomb.bombcount;
+    }
+    else{
+      bomb.bombcount = 0;
+    }
+
     // added bomb instance
     renderer.Render(snake, food, bomb);
 
@@ -73,6 +82,8 @@ void Game::Update() {
   if (!snake.alive) return;
 
   snake.Update();
+
+  bomb.UpdateBomb();
 
   int new_x = static_cast<int>(snake.head_x);
   int new_y = static_cast<int>(snake.head_y);

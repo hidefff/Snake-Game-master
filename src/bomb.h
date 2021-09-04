@@ -14,9 +14,12 @@ Bomb(std::size_t grid_width, std::size_t grid_height)
 :random_b_w(0, static_cast<int>(grid_width - 1)),
 random_b_h(0, static_cast<int>(grid_height - 1)),
 //engine2(dev()),
+bombcount(0),
 bombseed_x(grid_width / 2),
 bombseed_y(grid_height / 2) {
 CreateBomb();
+//ExplodeBomb();
+
 };
 
  //Create Bomb
@@ -31,6 +34,11 @@ CreateBomb();
  // bomb location
  float bombseed_x;
  float bombseed_y;
+
+ int bombcount;
+
+ const int bombtime = 10000000;
+
  
  //fire area
  class fire{
