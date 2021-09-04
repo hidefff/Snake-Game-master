@@ -1,6 +1,7 @@
 #include "renderer.h"
 #include <iostream>
 #include <string>
+#include <bomb.h>
 
 Renderer::Renderer(const std::size_t screen_width,
                    const std::size_t screen_height,
@@ -53,14 +54,23 @@ void Renderer::Render(Snake const snake, SDL_Point const &food, Bomb const bomb)
   block.y = food.y * block.h;
   SDL_RenderFillRect(sdl_renderer, &block);
 
-  // Render Red color Bomb
-  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
-  block.x = static_cast<int>(bomb.bomb_x) * block.w;
-  block.y = static_cast<int>(bomb.bomb_y) * block.h;
-  // block.x = 100;
-  // block.y = 100;
-  SDL_RenderFillRect(sdl_renderer, &block);
-
+  // Render red fire
+  if(bomb.status == Bomb::bombstatus::explode){
+    for(auto e :bomb.bombarea){
+      SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
+      block.x = static_cast<int>(e.fire_x) * block.w;
+      block.y = static_cast<int>(e.fire_y) * block.h;
+      SDL_RenderFillRect(sdl_renderer, &block);
+      }
+  }
+  // Render Green color Bomb seed
+  else if(bomb.status == Bomb::bombstatus::seed){
+    SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0xFF, 0x00, 0xFF);
+    block.x = static_cast<int>(bomb.bombseed_x) * block.w;
+    block.y = static_cast<int>(bomb.bombseed_y) * block.h;
+    SDL_RenderFillRect(sdl_renderer, &block);
+  }
+  
   // Render snake's body
   SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
   for (SDL_Point const &point : snake.body) {

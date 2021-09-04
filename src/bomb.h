@@ -4,9 +4,7 @@
 #include <random>
 #include <vector>
 #include "SDL.h"
-
-
-
+#include <stdio.h>
 
 class Bomb {
  public:
@@ -16,10 +14,9 @@ Bomb(std::size_t grid_width, std::size_t grid_height)
 :random_b_w(0, static_cast<int>(grid_width - 1)),
 random_b_h(0, static_cast<int>(grid_height - 1)),
 //engine2(dev()),
-bomb_x(grid_width / 2),
-bomb_y(grid_height / 2) {
+bombseed_x(grid_width / 2),
+bombseed_y(grid_height / 2) {
 CreateBomb();
-
 };
 
  //Create Bomb
@@ -28,18 +25,35 @@ CreateBomb();
  void ExplodeBomb();
  //Finish Bomb
  void FinishBomb();
+ //update Bomb
+ void UpdateBomb();
  
- float bomb_x;
- float bomb_y;
+ // bomb location
+ float bombseed_x;
+ float bombseed_y;
  
- private:
- 
- //std::random_device dev;
- std::mt19937 engine2;
+ //fire area
+ class fire{
+     public:
+     float fire_x;
+     float fire_y;
+};
 
+ //area of fired
+ std::vector<fire> bombarea;
+
+ //define status of bomb
+ enum struct bombstatus{
+     seed,
+     explode,
+     finish
+ };
+ enum bombstatus status;
+
+ private:
+ std::mt19937 engine2;
  std::uniform_int_distribution<int> random_b_w;
  std::uniform_int_distribution<int> random_b_h;
-
 
 };
 #endif

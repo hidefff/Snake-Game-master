@@ -68,8 +68,6 @@ void Game::PlaceFood() {
   }
 }
 
-//Place Bomb
-void Game::PlaceBomb(){}
 
 void Game::Update() {
   if (!snake.alive) return;
