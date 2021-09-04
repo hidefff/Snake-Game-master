@@ -35,9 +35,11 @@ CreateBomb();
  float bombseed_x;
  float bombseed_y;
 
- int bombcount;
+ float bombcount;
+ float firecount;
 
- const int bombtime = 10000000;
+ const float bombtime = 100.0;
+ const float firetime = 10.0;
 
  
  //fire area

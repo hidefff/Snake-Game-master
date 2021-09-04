@@ -3,6 +3,27 @@
 #include <iostream>
 #include <random>
 
+// update bomb status
+void Bomb::UpdateBomb()
+{
+    if(status == bombstatus::finish){CreateBomb();}
+    else if ((status == bombstatus::seed) && (bombcount == bombtime)){ExplodeBomb();}
+    else if ((status == bombstatus::explode) && (firecount == firetime)){FinishBomb();}
+    
+    
+    if(status== bombstatus::explode){
+        if (firecount < firetime)
+        {
+            ++firecount;
+            }
+            else{
+                firecount = 0;
+                }
+    }
+
+    return;
+}
+
 void Bomb::CreateBomb(){
     int x, y;
     while(true){
@@ -18,20 +39,9 @@ void Bomb::CreateBomb(){
         status = bombstatus::seed;
 
         return;
-      
         //need to check that whether there is no snake and food
     }
     
-}
-
-// update bomb status
-void Bomb::UpdateBomb()
-{
-    if(status == bombstatus::finish){CreateBomb();}
-    else if ((status == bombstatus::seed) && (bombcount = bombtime)){ExplodeBomb();}
-    else{FinishBomb();}
-
-    return;
 }
 
 //change status to bomb
@@ -46,20 +56,16 @@ void Bomb::ExplodeBomb(){
             bombarea.push_back(fire);
         }
     }
-
+    
     status = bombstatus::explode;
     
     return;
-
 }
 
 //change status to finish
 void Bomb::FinishBomb(){
 
-    //need to consider how to delete
-    bombseed_x = 0;
-    bombseed_y = 0;
-
+    bombarea.clear();
     status = bombstatus::finish;
 
     return;
