@@ -39,7 +39,7 @@ CreateBomb();
  float firecount;
 
  const float bombtime = 100.0;
- const float firetime = 10.0;
+ const float firetime = 1000.0;
 
  
  //fire area

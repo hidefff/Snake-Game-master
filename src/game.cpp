@@ -29,6 +29,8 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);
     Update();
+    std::cout <<"snake alive status " << snake.alive << std::endl;
+    std::cout <<"snake body"<< snake.head_x << std::endl;
 
     // added bomb instance
     renderer.Render(snake, food, bomb);
@@ -52,7 +54,6 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     // achieve the correct frame rate.
     if (frame_duration < target_frame_duration) {
       SDL_Delay(target_frame_duration - frame_duration);
-    
     }
 
     //terminate when snake die
@@ -79,7 +80,7 @@ void Game::PlaceFood() {
 }
 
 // check whether snake head is in fire and judge dead or not
-void Game::Checkdeath(Bomb bomb, Snake snake){
+void Game::Checkdeath(Bomb bomb, Snake& snake){
   
   int new_x = static_cast<int>(snake.head_x);
   int new_y = static_cast<int>(snake.head_y);
@@ -87,7 +88,10 @@ void Game::Checkdeath(Bomb bomb, Snake snake){
   for(auto e: bomb.bombarea){
     if ((static_cast<int>(e.fire_x) == new_x) &&  (static_cast<int>(e.fire_y) == new_y)){
       snake.alive = false;
+      std::cout << "snake hit fire" << std::endl;
+      std::cout << snake.alive << std::endl;
     }
+    
   }
   
   return;
