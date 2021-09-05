@@ -38,8 +38,8 @@ CreateBomb();
  float bombcount;
  float firecount;
 
- const float bombtime = 100.0;
- const float firetime = 1000.0;
+ const float bombtime = 300.0;
+ const float firetime = 100.0;
 
  
  //fire area
@@ -66,4 +66,5 @@ CreateBomb();
  std::uniform_int_distribution<int> random_b_h;
 
 };
+
 #endif
