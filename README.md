@@ -14,7 +14,7 @@ Operation is as same as base code. You can control snake by up/down/left/right b
 ---
 ## Rubric Points Required and Result
 
-|CRITERIA item| subitem |line
+|CRITERIA item| subitem |Answer Location in the code
 |---:|:---|---|
 |README| A README with instructions is included with the project||
 |^|The README indicates which project is chosen|a|
@@ -23,18 +23,18 @@ Operation is as same as base code. You can control snake by up/down/left/right b
 |Loops, Functions, I/O|||
 |^|The project demonstrates an understanding of C++ functions and control structures.||
 |^|The project reads data from a file and process the data, or the program writes data to a file.||
-|^|The project accepts user input and processes the input.||
+|^|The project accepts user input and processes the input.|Catch user operation for snake in game.cpp|
 |Object Oriented Programming|The project uses Object Oriented Programming techniques.||
-|^|Classes use appropriate access specifiers for class members.||
-|^|Class constructors utilize member initialization lists.||
-|^|Classes abstract implementation details from their interfaces.||
-|^|Classes encapsulate behavior.||
+|^|Classes use appropriate access specifiers for class members.|Bomb.cpp and game.cpp uses appropriate specifier to create bomb and snake |
+|^|Class constructors utilize member initialization lists.|Create constructor and initialize it in bmb.h, line 12|
+|^|Classes abstract implementation details from their interfaces.|Absturcted bomb behavior in bomb.h, bomb.cpp, like ExplodeBomb()|
+|^|Classes encapsulate behavior.|Absturcted bomb behavior in bomb.h, bomb.cpp, like ExplodeBomb()|
 |^|Classes follow an appropriate inheritance hierarchy.||
-|^|Overloaded functions allow the same function to operate on different parameters.||
+|^|Overloaded functions allow the same function to operate on different parameters.|overload message create function, Createmessage(), in bomb.h and bomb.cpp|
 |^|Derived class functions override virtual base class functions.||
 |^|Templates generalize functions in the project.||
 |Memory Management|||
-|^|The project makes use of references in function declarations.||
+|^|The project makes use of references in function declarations.|In game.cpp, Checkdeath() use reference|
 |^|The project uses destructors appropriately.||
 |^|The project uses scope / Resource Acquisition Is Initialization (RAII) where appropriate.||
 |^|The project follows the Rule of 5.||

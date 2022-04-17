@@ -6,8 +6,8 @@
 // update bomb status
 void Bomb::UpdateBomb()
 {
-    if(status == bombstatus::finish){CreateBomb();}
-    else if ((status == bombstatus::seed) && (bombcount == bombtime)){ExplodeBomb();}
+    if(status == bombstatus::finish){CreateBomb(); Createmessage(bombstatus::seed);}
+    else if ((status == bombstatus::seed) && (bombcount == bombtime)){ExplodeBomb(); Createmessage(bombstatus::explode);}
     else if ((status == bombstatus::explode) && (firecount == firetime)){FinishBomb();}
     
     if(status== bombstatus::explode){
@@ -48,9 +48,9 @@ void Bomb::ExplodeBomb(){
 
     Bomb::fire fire;
 
-    for(float i=-2.0; i<=2.0; i+=1.0){
+    for(float i=-1.0 * bombwidth; i<=bombwidth; i+=1.0){
         fire.fire_x = bombseed_x + i;
-        for(float j=-2.0; j<=2.0; j+=1.0){
+        for(float j=-1.0*bombwidth; j<=bombwidth; j+=1.0){
             fire.fire_y = bombseed_y + j;
             bombarea.push_back(fire);
         }
