@@ -6,6 +6,7 @@
 #include "controller.h"
 #include "renderer.h"
 #include "snake.h"
+#include "bomb.h"
 
 class Game {
  public:
@@ -15,9 +16,14 @@ class Game {
   int GetScore() const;
   int GetSize() const;
 
+  void Checkdeath(Bomb bomb, Snake& snake);
+
  private:
   Snake snake;
   SDL_Point food;
+  
+  //Create bomb instance
+  Bomb bomb;
 
   std::random_device dev;
   std::mt19937 engine;
@@ -27,6 +33,10 @@ class Game {
   int score{0};
 
   void PlaceFood();
+
+  //Create Place Bomb
+  void PlaceBomb();
+
   void Update();
 };
 

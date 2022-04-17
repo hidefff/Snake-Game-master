@@ -1,12 +1,51 @@
-# CPPND: Capstone Snake Game Example
+# C++ Capstone Project/Snake Game
 
-This is a starter repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). The code for this repo was inspired by [this](https://codereview.stackexchange.com/questions/212296/snake-game-in-c-with-sdl) excellent StackOverflow post and set of responses.
+## Over all
+This is a read me file for Capstone project answer.
 
-<img src="snake_game.gif"/>
+## The game summary
+This is a game to grow snake avoiding bomb. Food will locate in the game area, and if snake eats it, the snake grows with body. If the body hits snake head, snake will die. In the game area, bomb will located randamory. The bomb of seed is green and when it explodes, its change color and spread. Snake have to grow avoiding this.
 
-The Capstone Project gives you a chance to integrate what you've learned throughout this program. This project will become an important part of your portfolio to share with current and future colleagues and employers.
+## How to operate
+Operation is as same as base code. You can control snake by up/down/left/right button.
 
-In this project, you can build your own C++ application or extend this Snake game, following the principles you have learned throughout this Nanodegree Program. This project will demonstrate that you can independently create applications using a wide range of C++ features.
+[](<img src="snake_game.gif"/>)
+
+---
+## Rubric Points Required and Result
+
+|CRITERIA item| subitem |Answer Location in the code
+|---:|:---|---|
+|README| A README with instructions is included with the project||
+|^|The README indicates which project is chosen|a|
+|^|The README includes information about each rubric point addressed||
+|Compiling and Testing (All Rubric Points REQUIRED)|The submission must compile and run.||
+|Loops, Functions, I/O|||
+|^|The project demonstrates an understanding of C++ functions and control structures.||
+|^|The project reads data from a file and process the data, or the program writes data to a file.||
+|^|The project accepts user input and processes the input.|Catch user operation for snake in game.cpp|
+|Object Oriented Programming|The project uses Object Oriented Programming techniques.||
+|^|Classes use appropriate access specifiers for class members.|Bomb.cpp and game.cpp uses appropriate specifier to create bomb and snake |
+|^|Class constructors utilize member initialization lists.|Create constructor and initialize it in bmb.h, line 12|
+|^|Classes abstract implementation details from their interfaces.|Absturcted bomb behavior in bomb.h, bomb.cpp, like ExplodeBomb()|
+|^|Classes encapsulate behavior.|Absturcted bomb behavior in bomb.h, bomb.cpp, like ExplodeBomb()|
+|^|Classes follow an appropriate inheritance hierarchy.||
+|^|Overloaded functions allow the same function to operate on different parameters.|overload message create function, Createmessage(), in bomb.h and bomb.cpp|
+|^|Derived class functions override virtual base class functions.||
+|^|Templates generalize functions in the project.||
+|Memory Management|||
+|^|The project makes use of references in function declarations.|In game.cpp, Checkdeath() use reference|
+|^|The project uses destructors appropriately.||
+|^|The project uses scope / Resource Acquisition Is Initialization (RAII) where appropriate.||
+|^|The project follows the Rule of 5.||
+|^|The project uses move semantics to move data, instead of copying it, where possible.||
+|^|The project uses smart pointers instead of raw pointers.||
+|Concurrency|The project uses multithreading.||
+|^|A promise and future is used in the project.||
+|^|A mutex or lock is used in the project.||
+|^|A condition variable is used in the project.||
+
+---
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
