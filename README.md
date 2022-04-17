@@ -32,6 +32,8 @@ In this project, you can build your own C++ application or extend this Snake gam
 
 //this is test comment
 //second comment
+//third comment
+
 
 ## CC Attribution-ShareAlike 4.0 International
 
