@@ -18,7 +18,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
   Uint32 frame_duration;
   int frame_count = 0;
   bool running = true;
-  // test comment
+  // test comment2
 
   while (running) {
     frame_start = SDL_GetTicks();
@@ -81,6 +81,7 @@ void Game::Update() {
     // Grow snake and increase speed.
     snake.GrowBody();
     snake.speed += 0.02;
+    
   }
 }
 
