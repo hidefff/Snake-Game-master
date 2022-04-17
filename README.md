@@ -31,6 +31,7 @@ In this project, you can build your own C++ application or extend this Snake gam
 4. Run it: `./SnakeGame`.
 
 //this is test comment
+//second comment
 
 ## CC Attribution-ShareAlike 4.0 International
 
